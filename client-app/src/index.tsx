@@ -5,10 +5,13 @@ import App from './app/layout/App';
 import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css';
 import { store, storeContext } from './app/stores/store';
+import { BrowserRouter as Router} from "react-router-dom";
 
 ReactDOM.render(
   <storeContext.Provider value={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </storeContext.Provider>,
   document.getElementById('root')
 );

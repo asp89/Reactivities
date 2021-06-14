@@ -13,12 +13,17 @@ export default observer(function LoginForm() {
       onSubmit={(values, { setErrors }) =>
         userStore
           .login(values)
-          .catch((error) => setErrors({ error: "Invalid Email/Password" }))
+          .catch((error) => setErrors({ error: "Invalid Email/Password!" }))
       }
     >
-      {({ handleSubmit, isSubmitting, errors, isValid, dirty }) => (
+      {({ handleSubmit, isSubmitting, errors }) => (
         <Form className="ui form" onSubmit={handleSubmit} autoComplete="off">
-          <Header as="h2" content="Login" color="teal" textAlign="center" />
+          <Header
+            as="h2"
+            content="Login to Reactivites"
+            color="teal"
+            textAlign="center"
+          />
           <MyTextInput name="email" placeholder="Email" />
           <MyTextInput name="password" placeholder="Password" type="password" />
           <ErrorMessage
@@ -33,7 +38,6 @@ export default observer(function LoginForm() {
             )}
           />
           <Button
-            disabled={!isValid || !dirty || isSubmitting}
             loading={isSubmitting}
             positive
             content="Login"

@@ -29,20 +29,19 @@ export default observer(function HomePage() {
           </>
         ) : (
           <>
-            <Header as="h2" inverted content="Welcome to Reactivities" />
             <Button
               onClick={() => modalStore.openModal(<LoginForm />)}
               size="huge"
               inverted
             >
-              Login
+              Login!
             </Button>
             <Button
               onClick={() => modalStore.openModal(<RegisterForm />)}
               size="huge"
               inverted
             >
-              Register
+              Register!
             </Button>
           </>
         )}

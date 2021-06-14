@@ -1,13 +1,13 @@
-import React from "react";
 import { ErrorMessage, Form, Formik } from "formik";
 import { observer } from "mobx-react-lite";
-import { Button, Header, Segment } from "semantic-ui-react";
+import React from "react";
+import { Button, Header } from "semantic-ui-react";
 import MyTextInput from "../../app/common/form/MyTextInput";
 import { useStore } from "../../app/stores/store";
 import * as Yup from "yup";
 import ValidationErrors from "../errors/ValidationErrors";
 
-export default observer(function LoginForm() {
+export default observer(function RegisterForm() {
   const { userStore } = useStore();
   return (
     <Formik
@@ -36,7 +36,7 @@ export default observer(function LoginForm() {
         >
           <Header
             as="h2"
-            content="Sign up to Reactivities"
+            content="Sign up to Reactivites"
             color="teal"
             textAlign="center"
           />

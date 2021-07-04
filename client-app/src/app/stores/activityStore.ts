@@ -24,7 +24,9 @@ export default class ActivityStore {
 
   get groupedActivities() {
     return Object.entries(
-      this.activitiesByDate.reduce((activities, activity) => {
+      this.activitiesByDate.reduce((activities, activity, i) => {
+        // TODO: To update logged in user photo in the activity list.
+        // activity.attendees.forEach((item) => console.log(item.image));
         const date = format(activity.date!, "dd MMM yyyy");
         activities[date] = activities[date]
           ? [...activities[date], activity]
@@ -183,13 +185,21 @@ export default class ActivityStore {
     try {
       await agent.Activities.attend(this.selectedActivity!.id);
       runInAction(() => {
-        this.selectedActivity!.isCancelled = !this.selectedActivity?.isCancelled;
-        this.activityRegistry.set(this.selectedActivity!.id, this.selectedActivity!);
-      })
+        this.selectedActivity!.isCancelled =
+          !this.selectedActivity?.isCancelled;
+        this.activityRegistry.set(
+          this.selectedActivity!.id,
+          this.selectedActivity!
+        );
+      });
     } catch (error) {
       console.log(error);
-    } finally{
-      runInAction(() => this.loading = false);      
+    } finally {
+      runInAction(() => (this.loading = false));
     }
+  };
+
+  clearSelectedActivity = () => {
+    this.selectedActivity = undefined;
   }
 }

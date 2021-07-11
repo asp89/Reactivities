@@ -11,11 +11,14 @@ import { observer } from "mobx-react-lite";
 export default observer(function ProfilePage() {
   const { username } = useParams<{ username: string }>();
   const { profileStore } = useStore();
-  const { loadingProfile, loadProfile, profile } = profileStore;
+  const { loadingProfile, loadProfile, profile, setActiveTab } = profileStore;
 
   useEffect(() => {
     loadProfile(username);
-  }, [loadProfile, username]);
+    return () => {
+      setActiveTab(0);
+    };
+  }, [loadProfile, username, setActiveTab]);
 
   if (loadingProfile) return <LoadingComponent content="Loading profile..." />;
 

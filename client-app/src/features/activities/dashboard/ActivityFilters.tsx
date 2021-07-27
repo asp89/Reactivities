@@ -29,7 +29,7 @@ export default observer(function ActivityFilters() {
       <Header />
       <Calendar
         onChange={(date) => setPredicate('startDate', date as Date)}
-        value={predicate.get('startDate') || new Date}
+        value={predicate.get('startDate') || new Date()}
       />
     </>
   );

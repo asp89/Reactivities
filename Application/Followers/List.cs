@@ -48,7 +48,7 @@ namespace Application.Followers
                         break;
                     case "following":
                         profiles = await _context.UserFollowings.Where(x =>
-                        x.Target.UserName == request.Username)
+                        x.Observer.UserName == request.Username)
                         .Select(u => u.Target)
                         .ProjectTo<Profiles.Profile>(_mapper.ConfigurationProvider, 
                             new {currentUsername = _userAccessor.GetUsername()})

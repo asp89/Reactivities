@@ -60,7 +60,8 @@ namespace API
                     "https://res.cloudinary.com",
                     "https://www.facebook.com",
                     "https://connect.facebook.net",
-                    "data:"
+                    "data:",
+                    "https://scontent-iad3-1.xx.fbcdn.net"
                 ))
                 .ScriptSources(s => s.Self().CustomSources(                    
                     "sha256-vBv96ob1dtY9TUUhezqayRowro9msv/nDVoYMcptV8o=",

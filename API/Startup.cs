@@ -49,21 +49,24 @@ namespace API
                     "https://fonts.googleapis.com",
                     "sha256-vBv96ob1dtY9TUUhezqayRowro9msv/nDVoYMcptV8o=",
                     "sha256-oFySg82XYSNiSd+Q3yfYPD/rxY6RMDMJ0KxzGG74iGM="
-                    ))
+                ))
                 .FontSources(s => s.Self().CustomSources(
                     "https://fonts.gstatic.com",
-                     "data:"                     
-                    ))
+                     "data:"
+                ))
                 .FormActions(s => s.Self())
                 .FrameAncestors(s => s.Self())
                 .ImageSources(s => s.Self().CustomSources(
                     "https://res.cloudinary.com",
-                    "https://www.facebook.com"
-                    ))
-                .ScriptSources(s => s.Self().CustomSources(
+                    "https://www.facebook.com",
+                    "https://connect.facebook.net",
+                    "data:"
+                ))
+                .ScriptSources(s => s.Self().CustomSources(                    
+                    "sha256-vBv96ob1dtY9TUUhezqayRowro9msv/nDVoYMcptV8o=",
                     "sha256-1Xd5VbAO++yNbo24/AtILK1tKVB0ixBbThpwpSoR8lk=",
                     "https://connect.facebook.net"
-                    ))
+                ))
             );
 
             if (env.IsDevelopment())

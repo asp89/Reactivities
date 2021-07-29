@@ -67,7 +67,7 @@ namespace API.Extensions
                     .AllowAnyHeader()
                     .AllowCredentials()
                     // .SetIsOriginAllowed(origin => true);
-                    .WithOrigins("http://localhost:3000");
+                    .WithOrigins("http://localhost:3000","https://localhost:3000");
                 });
             });
             services.AddMediatR(typeof(Application.Activities.List.Handler).Assembly);
